@@ -1,0 +1,14 @@
+﻿@using EmployeDataFetching.Models;
+
+@{
+    var ashhadData = ViewBag.ashhadData;
+}
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Name : @ashhadData.name</h5>
+    <h5 class="card-title">Id : @ashhadData.id</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Age : @ashhadData.age</h6>
+    <p class="card-text">Discription About Me : @ashhadData.description</p>
+  </div>
+</div>
