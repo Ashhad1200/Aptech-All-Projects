@@ -1,0 +1,25 @@
+﻿@model MVC_With_DB.Models.Blog
+
+<h1>
+    Add Blog
+</h1>
+
+<form method="post">
+    
+    <div class="mb-3">
+        <label for="InputTitle" class="form-label">Title</label>
+        <input type="text" class="form-control" asp-for="Title" aria-describedby="emailHelp">
+    </div>
+    
+    <div class="mb-3">
+        <label for="InputSubHeading" class="form-label">SubHeading</label>
+        <input type="text" class="form-control" asp-for="Subheading" aria-describedby="emailHelp">
+    </div>    
+    
+    <div class="mb-3">
+        <label for="InputDescription" class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description"  aria-describedby="emailHelp">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Blog 😊</button>
+</form>
