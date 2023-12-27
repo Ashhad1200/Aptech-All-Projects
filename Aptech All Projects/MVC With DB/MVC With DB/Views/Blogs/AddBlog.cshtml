@@ -5,20 +5,23 @@
 </h1>
 
 <form method="post">
-    
-    <div class="mb-3">
-        <label for="InputTitle" class="form-label">Title</label>
-        <input type="text" class="form-control" asp-for="Title" aria-describedby="emailHelp">
+
+    <div class="row g-3">
+        <div class="col">
+            <label for="InputTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" asp-for="Title" placeholder="Title" aria-label="Title">
+        </div>
+        <div class="col">
+            <label for="InputSubHeading" class="form-label">SubHeading</label>
+            <input type="text" class="form-control" asp-for="Subheading" placeholder="SubHeading" aria-label="SubHeading">
+        </div>
+
     </div>
-    
-    <div class="mb-3">
-        <label for="InputSubHeading" class="form-label">SubHeading</label>
-        <input type="text" class="form-control" asp-for="Subheading" aria-describedby="emailHelp">
-    </div>    
-    
-    <div class="mb-3">
-        <label for="InputDescription" class="form-label">Description</label>
-        <input type="text" class="form-control" asp-for="Description"  aria-describedby="emailHelp">
+    <div class="row g-3 mb-2">
+        <div class="col">
+            <label for="InputDescription" class="form-label">Description</label>
+            <input type="text" class="form-control" asp-for="Description" placeholder="Description" aria-label="Description">
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Add Blog 😊</button>
