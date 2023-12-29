@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MVC_With_DB.Models.Blog>
+
+<div class="blog-container">
+    <h2>Blog Posts</h2>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        @item.Title
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>@item.Description</p>
+                            <footer class="blockquote-footer">@item.Subheading</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

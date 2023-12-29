@@ -26,10 +26,14 @@ namespace MVC_With_DB.Controllers
                 Subheading = addBlog.Subheading,
                 Description = addBlog.Description
             };
-            applicationDBContext.Add(addBlog);
+            applicationDBContext.Blogs.Add(addBlog);
             applicationDBContext.SaveChanges();
 
             return View();
+        }
+        public IActionResult Fetch()
+        {
+            return View(applicationDBContext.Blogs.ToList());
         }
     }
 }
