@@ -24,9 +24,14 @@ namespace MVC_With_DB.Controllers
             {
                 Name = addTag.Name,
             };
-            applicationDBContext.Add(addTag);
+            applicationDBContext.Tags.Add(addTag);
             applicationDBContext.SaveChanges();
             return View();
+        }
+
+        public IActionResult Fetch()
+        {
+            return View(applicationDBContext.Tags.ToList());
         }
     }
 }
