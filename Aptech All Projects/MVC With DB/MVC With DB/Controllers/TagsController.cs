@@ -8,7 +8,8 @@ namespace MVC_With_DB.Controllers
     {
         private readonly ApplicationDBContext applicationDBContext;
 
-        public TagsController ( ApplicationDBContext applicationDBContext ) {
+        public TagsController(ApplicationDBContext applicationDBContext)
+        {
             this.applicationDBContext = applicationDBContext;
         }
 
@@ -33,5 +34,23 @@ namespace MVC_With_DB.Controllers
         {
             return View(applicationDBContext.Tags.ToList());
         }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var deleteTag = applicationDBContext.Tags.Find(id);
+
+            if (deleteTag == null)
+            {
+                return NotFound();
+            }
+
+            applicationDBContext.Remove(deleteTag);
+            applicationDBContext.SaveChanges();
+            return RedirectToAction("Fetch"); // Redirect to the list of tags
+        }
+
+
+
     }
 }

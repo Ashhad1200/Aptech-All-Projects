@@ -16,7 +16,7 @@
                 <td>@item.Name</td>
                 <td>
                     <a class="btn btn-outline-primary" href="#">Edit</a>
-                    <a class="btn btn-outline-danger" href="#">Delete</a>
+                    <a class="btn btn-outline-danger" href="@Url.Action("Delete", new { id = item.Id })">Delete</a>
                 </td>
             </tr>
         }
