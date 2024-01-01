@@ -17,6 +17,10 @@
                             <footer class="blockquote-footer">@item.Subheading</footer>
                         </blockquote>
                     </div>
+                    <div class="card-footer">
+                        <a class="btn btn-outline-primary">Edit</a>
+                        <a class="btn btn-outline-danger" asp-route-id="@item.Id" asp-action="deleteTag">Delete</a>
+                    </div>
                 </div>
             </div>
         }

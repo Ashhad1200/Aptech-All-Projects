@@ -35,19 +35,13 @@ namespace MVC_With_DB.Controllers
             return View(applicationDBContext.Tags.ToList());
         }
 
-        [HttpPost]
-        public IActionResult Delete(int id)
+      
+        public IActionResult deleteTag(int id)
         {
-            var deleteTag = applicationDBContext.Tags.Find(id);
-
-            if (deleteTag == null)
-            {
-                return NotFound();
-            }
-
-            applicationDBContext.Remove(deleteTag);
+           Tag tag = applicationDBContext.Tags.Find(id);
+            applicationDBContext.Tags.Remove(tag);
             applicationDBContext.SaveChanges();
-            return RedirectToAction("Fetch"); // Redirect to the list of tags
+            return RedirectToAction("Fetch"); 
         }
 
 

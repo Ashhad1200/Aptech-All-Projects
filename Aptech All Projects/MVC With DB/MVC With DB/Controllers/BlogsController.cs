@@ -35,5 +35,13 @@ namespace MVC_With_DB.Controllers
         {
             return View(applicationDBContext.Blogs.ToList());
         }
+
+        public IActionResult deleteBlog(int id)
+        {
+            Blog blog = applicationDBContext.Blogs.Find(id);
+            applicationDBContext.Blogs.Remove(blog);
+            applicationDBContext.SaveChanges();
+            return RedirectToAction("Fetch");
+        }
     }
 }
