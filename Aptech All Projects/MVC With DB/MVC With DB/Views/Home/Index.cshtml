@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h2 class="card-title">Latest Blog Post</h2>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Blogs" asp-action="Fetch">Read More</a>
                 </div>
             </div>
 
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h2 class="card-title">Another Interesting Post</h2>
                     <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a  class="btn btn-primary" asp-area="" asp-controller="Blogs" asp-action="Fetch">Read More</a>
                 </div>
             </div>
         </div>
@@ -30,10 +30,10 @@
         <div class="col-md-4">
             <h3>Popular Tags</h3>
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">Technology</a></li>
-                <li class="list-group-item"><a href="#">Travel</a></li>
-                <li class="list-group-item"><a href="#">Food</a></li>
-                <li class="list-group-item"><a href="#">Programming</a></li>
+                <li class="list-group-item"><a asp-area="" asp-controller="Tags" asp-action="Fetch">Technology</a></li>
+                <li class="list-group-item"><a asp-area="" asp-controller="Tags" asp-action="Fetch">Travel</a> </li>
+                <li class="list-group-item"><a asp-area="" asp-controller="Tags" asp-action="Fetch">Food</a></li>
+                <li class="list-group-item"><a asp-area="" asp-controller="Tags" asp-action="Fetch">Programming</a></li>
             </ul>
         </div>
     </div>
