@@ -43,5 +43,19 @@ namespace MVC_With_DB.Controllers
             applicationDBContext.SaveChanges();
             return RedirectToAction("Fetch");
         }
+
+        public IActionResult editBlog(int id)
+        {
+            return View(applicationDBContext.Blogs.Find(id));
+        }
+
+        [HttpPost]
+        public IActionResult editBlog(Blog blog)
+        {
+            applicationDBContext.Blogs.Update(blog);
+            applicationDBContext.SaveChanges();
+            return RedirectToAction("Fetch");
+        }
+
     }
 }

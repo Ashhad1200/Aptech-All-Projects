@@ -5,7 +5,7 @@
 namespace MVCWithDB.Migrations
 {
     /// <inheritdoc />
-    public partial class NewMigration : Migration
+    public partial class UpdatedMighration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,9 @@ namespace MVCWithDB.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Subheading = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Subheading = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

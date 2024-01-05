@@ -44,7 +44,17 @@ namespace MVC_With_DB.Controllers
             return RedirectToAction("Fetch"); 
         }
 
+        public IActionResult editTag( int id )
+        {
+            return View(applicationDBContext.Tags.Find(id));
+        }
 
-
+        [HttpPost]
+        public IActionResult editTag( Tag tag )
+        {
+            applicationDBContext.Tags.Update(tag);
+            applicationDBContext.SaveChanges();
+            return RedirectToAction("Fetch");
+        }
     }
 }

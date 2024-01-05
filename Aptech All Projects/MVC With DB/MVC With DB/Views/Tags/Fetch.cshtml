@@ -15,7 +15,7 @@
                 <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>
-                    <a class="btn btn-outline-primary">Edit</a>
+                    <a class="btn btn-outline-primary " asp-route-id="@item.Id" asp-action="editTag">Edit</a>
                         <a class="btn btn-outline-danger" asp-route-id="@item.Id" asp-action="deleteTag">Delete</a>
                 </td>
             </tr>
