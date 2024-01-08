@@ -8,6 +8,7 @@
         public String Subheading { get; set;}
         public String Content { get; set;}
         public String Author { get; set; }
+        public String Image { get; set; }
        
     }
 }

@@ -5,7 +5,7 @@
 namespace MVCWithDB.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdatedMighration : Migration
+    public partial class NewMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,8 @@ namespace MVCWithDB.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Subheading = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

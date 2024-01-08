@@ -6,24 +6,26 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-md-4">
-                <div class="card mb-3">
-                    
 
-                    <div class="card-body">
-                        <h5 class="card-title">Title : <span class="text-muted">@item.Title</span></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Author : @item.Author</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Subheading : @item.Subheading</h6>
-                        <p class="card-text">Description : @item.Description</p>
-                        <p class="card-text">Content : @item.Content</p>
-                    </div>
+            <div class="container1">
+                <img src="https://images.unsplash.com/photo-1579616075377-696d66a6e373?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="image1" />
 
-                </div>
-                <div class="card-footer">
+                <h1 class="heading1">@item.Title</h1>
+                <h1 class="heading1">@item.Subheading</h1>
+                <h1 class="heading1">@item.Content</h1>
+                <h1 class="heading1">@item.Author</h1>
+                <h1 class="heading1">@item.Description</h1>
+                <p class="para1">
+                    Hiran Minar is an early 16th-century Mughal era complex located in
+                    Sheikhupura, in the Pakistani province of Punjab.
+                </p>
+
+                <div>
                     <a class="btn btn-outline-primary" asp-route-id="@item.Id" asp-action="editBlog">Edit</a>
                     <a class="btn btn-outline-danger" asp-route-id="@item.Id" asp-action="deleteBlog">Delete</a>
                 </div>
-         </div>
+            </div>
+
 
         }
     </div>

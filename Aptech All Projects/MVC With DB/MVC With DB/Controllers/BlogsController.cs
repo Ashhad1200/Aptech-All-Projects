@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_With_DB.Data;
 using MVC_With_DB.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MVC_With_DB.Controllers
 {
@@ -18,13 +19,21 @@ namespace MVC_With_DB.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBlog(Blog addBlog)
+        public IActionResult AddBlog(Blog addBlog , IFormFile blogImage)
         {
+            if (blogImage =! null && blogImage.Length>0)
+            {
+
+            }
+
             var blog = new Blog
             {
                 Title = addBlog.Title,
                 Subheading = addBlog.Subheading,
-                Description = addBlog.Description
+                Description = addBlog.Description,
+                Content= addBlog.Content,
+                Author = addBlog.Author,
+                Image = addBlog.Image
             };
             applicationDBContext.Blogs.Add(addBlog);
             applicationDBContext.SaveChanges();
