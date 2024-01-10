@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_With_DB.Data;
 using MVC_With_DB.Models;
+using System.Reflection.Metadata;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MVC_With_DB.Controllers
@@ -19,13 +20,8 @@ namespace MVC_With_DB.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBlog(Blog addBlog , IFormFile blogImage)
+        public IActionResult AddBlog(Blog addBlog )
         {
-            if (blogImage =! null && blogImage.Length>0)
-            {
-
-            }
-
             var blog = new Blog
             {
                 Title = addBlog.Title,
@@ -64,6 +60,33 @@ namespace MVC_With_DB.Controllers
             applicationDBContext.Blogs.Update(blog);
             applicationDBContext.SaveChanges();
             return RedirectToAction("Fetch");
+        }
+
+        [HttpPost]
+        public IActionResult addImg(Blog blog , IFormFile img)
+        {
+            if (img != null && img.Length > 0)
+            {
+                var ff = Path.GetFileName(img.FileName);
+                Random rn = new Random();
+                var ii = rn.Next(1, 200);
+                var fn = ii + ff;
+                var fol = Path.Combine(HttpContext.Request.PathBase.Value, "wwwroot/uploads");
+                if (!Directory.Exists(fol))
+                {
+                    Directory.CreateDirectory(fol);
+                }
+                string fp = Path.Combine(fol, fn);
+                using (var a = new FileStream(fp, FileMode.Create))
+                { 
+                    img.CopyTo(a);
+                }
+                var dbi = Path.Combine("uploads", fp);
+                blog.Image = dbi;
+                applicationDBContext.Blogs.Add(blog);
+                applicationDBContext.SaveChanges();
+            }
+            return View();
         }
 
     }
