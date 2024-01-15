@@ -19,23 +19,36 @@ namespace MVC_With_DB.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult AddBlog(Blog addBlog )
-        {
-            var blog = new Blog
-            {
-                Title = addBlog.Title,
-                Subheading = addBlog.Subheading,
-                Description = addBlog.Description,
-                Content= addBlog.Content,
-                Author = addBlog.Author,
-                Image = addBlog.Image
-            };
-            applicationDBContext.Blogs.Add(addBlog);
-            applicationDBContext.SaveChanges();
 
+        [HttpPost]
+        public IActionResult AddBlog(Blog blog, IFormFile imgfile)
+        {
+            if (imgfile != null && imgfile.Length > 0)
+            {
+                var ff = Path.GetFileName(imgfile.FileName);
+                Random rn = new Random();
+                var ii = rn.Next(1, 200);
+                var fn = ii + ff;
+                var fol = Path.Combine(HttpContext.Request.PathBase.Value, "wwwroot/uploads");
+                if (!Directory.Exists(fol))
+                {
+                    Directory.CreateDirectory(fol);
+                    Directory.CreateDirectory(fol);
+                }
+                string fp = Path.Combine(fol, fn);
+                using (var a = new FileStream(fp, FileMode.Create))
+                {
+                    imgfile.CopyTo(a);
+                }
+                var dbi = Path.Combine("uploads",fn);
+                blog.Image = dbi;
+                applicationDBContext.Blogs.Add(blog);
+                applicationDBContext.SaveChanges();
+            }
             return View();
+ 
         }
+
         public IActionResult Fetch()
         {
             return View(applicationDBContext.Blogs.ToList());
@@ -62,32 +75,7 @@ namespace MVC_With_DB.Controllers
             return RedirectToAction("Fetch");
         }
 
-        [HttpPost]
-        public IActionResult addImg(Blog blog , IFormFile img)
-        {
-            if (img != null && img.Length > 0)
-            {
-                var ff = Path.GetFileName(img.FileName);
-                Random rn = new Random();
-                var ii = rn.Next(1, 200);
-                var fn = ii + ff;
-                var fol = Path.Combine(HttpContext.Request.PathBase.Value, "wwwroot/uploads");
-                if (!Directory.Exists(fol))
-                {
-                    Directory.CreateDirectory(fol);
-                }
-                string fp = Path.Combine(fol, fn);
-                using (var a = new FileStream(fp, FileMode.Create))
-                { 
-                    img.CopyTo(a);
-                }
-                var dbi = Path.Combine("uploads", fp);
-                blog.Image = dbi;
-                applicationDBContext.Blogs.Add(blog);
-                applicationDBContext.SaveChanges();
-            }
-            return View();
-        }
+       
 
     }
 }
