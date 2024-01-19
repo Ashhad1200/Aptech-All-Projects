@@ -75,7 +75,10 @@ namespace MVC_With_DB.Controllers
             return RedirectToAction("Fetch");
         }
 
-       
 
+        public IActionResult detailBlog(int id)
+        {
+            return View(applicationDBContext.Blogs.Find(id));
+        }
     }
 }

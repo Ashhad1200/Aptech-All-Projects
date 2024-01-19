@@ -6,7 +6,7 @@
     <div class="row">
         @foreach (var item in Model)
         {
-                <div class="container mt-4">
+                @*<div class="container mt-4">
                     <div class="card">
                         <!-- Image -->
                         <img src="~/@item.Image" class="card-img-top w-50" alt="Blog Image">
@@ -32,7 +32,31 @@
                         </div>
                     </div>
                 </div>
+*@
 
+            <div class=" w-full bg-white shadow-lg rounded-md p-6">
+                <!-- Blog Image -->
+                <img src="~/@item.Image" alt="Blog Image" class="mb-4 rounded-md w-25">
+
+                <!-- Author and Description -->
+                <div class="mb-4">
+                    <p class="text-gray-500 text-sm">By <span class="font-semibold"> @item.Author </span></p>
+                    @*<p class="text-gray-700 text-md">@item.Description</p>*@
+                </div>
+
+                <!-- Subheading and Title -->
+                <div class="mb-4">
+                    @*<h4 class="text-gray-600 text-md">@item.Subheading</h4>*@
+                    <h2 class="text-2xl font-semibold">@item.Title</h2>
+                </div>
+
+              
+
+                <!-- Read More Button -->
+                <div class="mt-4">
+                    <a class="text-blue-500 hover:underline" asp-controller="Blogs" asp-route-id="@item.Id" asp-action="detailBlog">Read more</a>
+                </div>
+            </div>
         }
     </div>
 
