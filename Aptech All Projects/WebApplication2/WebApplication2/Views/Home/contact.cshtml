@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "contact";
+}
+
+
+@*{
+    var a = 1;
+}
+@if (a == 10)
+{
+    <h1>contact</h1>
+}
+else
+{
+    <h1>hello</h1>
+}
+*@
+
+@{
+    string[] abc = {"sami", "Ali" , "Wahab", "Wajid"};
+    //foreach(String i  in abc)
+    //{
+    //    <h1>@i</h1>
+    //}
+    //for (int i = 0; i< abc.Length;i++)
+    //{
+    //    <h1>@abc[i]</h1>
+    //}
+    //int i=0;
+    //while (i< abc.Length)
+    //{
+    //     <h1>@abc[i]</h1>
+    //     i++;
+    //}
+    int i = 0;
+    do
+    {
+        <h1>@abc[i]</h1>
+        i++;
+    }
+
+    while (i < abc.Length);
+
+}
+
+
+
+
