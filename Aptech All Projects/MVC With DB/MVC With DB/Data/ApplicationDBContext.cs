@@ -8,7 +8,7 @@ namespace MVC_With_DB.Data
         public ApplicationDBContext(DbContextOptions options) : base(options)
         {
         }
-        DbSet<Tag> Tags { get; set; }
-        DbSet<Blog> Blogs { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
