@@ -10,7 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole >(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>().
     AddDefaultUI().
     AddDefaultTokenProviders();
@@ -18,7 +18,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-//using(var scope = app.Services.CreateScope())
+//using (var scope = app.Services.CreateScope())
 //{
 //    await DbSeeder.SeedDefaultData(scope.ServiceProvider);
 //}
