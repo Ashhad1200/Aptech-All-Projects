@@ -1,8 +1,37 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <form class=" row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+            <select class="form-select" aria-label="Default select example" id="categoryID">
+                <option selected>Choose.....</option>
+                <option value="1">Horror</option>
+                <option value="2">Adventure</option>
+                <option value="3">Science</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label class="visually-hidden" for="inlineFormInputGroupUsername">
+                Search By Title
+            </label>
+            <div class="input-group">
+                <div class="input-group-text"></div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search by Title" />
+                <button class="btn btn-outline-secondary" >Search</button>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
 </div>
