@@ -1,8 +1,8 @@
-﻿using Ecommers.Models;
+﻿using eCommerce.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ecommers.Data
+namespace eCommerce.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -12,11 +12,11 @@ namespace Ecommers.Data
         }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<CartDetails> CartDetails { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Order> Order { get; set; }
-        public DbSet<OrderDetails> OrderDetails { get; set; }
+        public DbSet<CartDetails> CartDetails { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set;}
+        public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }

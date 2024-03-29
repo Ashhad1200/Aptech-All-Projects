@@ -1,0 +1,51 @@
+﻿@model IEnumerable<eCommerce.Models.Book>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container">
+
+    <form class="row row-cols-lg-auto g-3 align-items-center">
+
+        <div class="col-12">
+            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+            <select class="form-select" id="categoryID">
+                <option selected>Choose...</option>
+                <option value="1">Horror</option>
+                <option value="2">Adventure</option>
+                <option value="3">Science</option>
+            </select>
+        </div>
+      <div class="col-12">
+        <label class="visually-hidden" for="inlineFormInputGroupUsername">Search By Title</label>
+        <div class="input-group">
+          <div class="input-group-text"></div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search By Title">
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+</div>
+
+<div class="container d-flex flex-wrap">
+
+    @foreach(var book in Model)
+    {
+        
+    
+
+    <div class="card mt-2 mx-3" style="width: 18rem;">
+        <img src="~/Images/@book.Image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@book.BookName</h5>
+            <p class="card-text">@book.Author</p>
+                <p class="card-text">@book.Price</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+    }
+</div>
