@@ -13,6 +13,11 @@ namespace eCommerce.Repositories
             this.db = db;
         }
 
+        public async Task<IEnumerable<Category>> displayCat()
+        {
+            return await db.Categories.ToListAsync();
+        }
+
         public async Task<IEnumerable<Book>> displayBooks(string sTerm = "", int categoryId = 0)
         {
             IEnumerable<Book> books = await (from book in db.Books

@@ -1,4 +1,5 @@
 ﻿using eCommerce.Models;
+using eCommerce.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -19,7 +20,13 @@ namespace eCommerce.Controllers
         public async Task<IActionResult> Index(string sTerm = "" , int categoryId = 0)
         {
             IEnumerable<Book> books = await homeRepository.displayBooks(sTerm , categoryId); 
-            return View(books);
+            IEnumerable<Category> categories = await homeRepository.displayCat();
+            BookDisplay bookmodel= new BookDisplay
+            {
+                Books = books,
+                Categories = categories
+            };
+            return View(bookmodel);
         }
 
         public IActionResult Privacy()

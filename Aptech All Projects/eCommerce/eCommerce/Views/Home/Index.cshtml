@@ -1,49 +1,54 @@
-﻿@model IEnumerable<eCommerce.Models.Book>
+﻿@model eCommerce.Models.DTOs.BookDisplay
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 
-<div class="container">
+<div class="mt-3 mx-3">
 
     <form class="row row-cols-lg-auto g-3 align-items-center">
 
+
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+        </div>
+
+
         <div class="col-12">
-            <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-            <select class="form-select" id="categoryID">
-                <option selected>Choose...</option>
-                <option value="1">Horror</option>
-                <option value="2">Adventure</option>
-                <option value="3">Science</option>
-            </select>
+            <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
+            <div class="input-group">
+                <div class="input-group-text"></div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+            </div>
         </div>
-      <div class="col-12">
-        <label class="visually-hidden" for="inlineFormInputGroupUsername">Search By Title</label>
-        <div class="input-group">
-          <div class="input-group-text"></div>
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search By Title">
+        <div class="col-12">
+            <button type="submit" class="btn btn-outline-success">Search</button>
         </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Search</button>
-      </div>
     </form>
 </div>
 
 <div class="container d-flex flex-wrap">
 
-    @foreach(var book in Model)
+    @foreach(var book in Model.Books)
     {
-        
-    
-
-    <div class="card mt-2 mx-3" style="width: 18rem;">
+    <div class="card mt-2 mx-3" style="width: 18rem; hight:auto;">
         <img src="~/Images/@book.Image" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">@book.BookName</h5>
-            <p class="card-text">@book.Author</p>
-                <p class="card-text">@book.Price</p>
+            <h5 class="card-title">Book Name : @book.BookName</h5>
+            <p class="card-text"> Wrote By: @book.Author</p>
+                <p class="card-text">Price For This book is Rs: @book.Price</p>
             <a href="#" class="btn btn-primary">Add to Cart</a>
         </div>
     </div>
