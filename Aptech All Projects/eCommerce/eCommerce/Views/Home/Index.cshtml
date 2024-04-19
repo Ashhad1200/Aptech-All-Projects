@@ -7,15 +7,24 @@
 
 <div class="mt-3 mx-3">
 
-    <form class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-12">
-
-
+    <form class="row row-cols-lg-auto g-4 align-items-center">
+        <div>
+        <label for="floatingSelect">Types</label>
+        <div class="form-floating">
+            <select class="form-select" id="categoryId" name="categoryId" aria-label="Floating label select example">
+                <option selected>Select Category</option>
+                @foreach (var category in Model.Categories)
+                {
+                    <option selected="@(category.Id == Model.categoryId)" value="@category.Id">@category.CategoryName</option>
+                }
+            </select>
+        </div>
+        </div>
         <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
             <div class="input-group">
                 <div class="input-group-text"></div>
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                <input type="text" class="form-control" name="sterm" value="@Model.Sterm" id="inlineFormInputGroupUsername" placeholder="Search">
             </div>
         </div>
         <div class="col-12">
@@ -26,16 +35,16 @@
 
 <div class="container d-flex flex-wrap">
 
-    @foreach(var book in Model.Books)
+    @foreach (var book in Model.Books)
     {
-    <div class="card mt-2 mx-3" style="width: 18rem; hight:auto;">
-        <img src="~/Images/@book.Image" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Book Name : @book.BookName</h5>
-            <p class="card-text"> Wrote By: @book.Author</p>
+        <div class="card mt-2 mx-3" style="width: 18rem;">
+            <img src="~/Images/@book.Image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Book Name : @book.BookName</h5>
+                <p class="card-text"> Wrote By: @book.Author</p>
                 <p class="card-text">Price For This book is Rs: @book.Price</p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
         </div>
-    </div>
     }
 </div>

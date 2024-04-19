@@ -21,10 +21,14 @@ namespace eCommerce.Controllers
         {
             IEnumerable<Book> books = await homeRepository.displayBooks(sTerm , categoryId); 
             IEnumerable<Category> categories = await homeRepository.displayCat();
-            BookDisplay bookmodel= new BookDisplay
+            BookDisplay bookmodel = new BookDisplay
             {
                 Books = books,
-                Categories = categories
+                Categories = categories,
+                Sterm = sTerm,
+                categoryId = categoryId
+
+
             };
             return View(bookmodel);
         }
