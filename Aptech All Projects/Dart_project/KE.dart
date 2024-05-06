@@ -9,12 +9,12 @@ void main() {
     print(userUnits * 15);
   } else if (userUnits <= 200) {
     print("According To Your Units : $userUnits Your Bill Is ");
-    print( userUnits * 20 );
+    print(userUnits * 20);
   } else if (userUnits <= 300) {
     print("According To Your Units : $userUnits Your Bill Is ");
-    print( userUnits * 30 );
+    print(userUnits * 30);
   } else {
-      print("According To Your Units : $userUnits Your Bill Is ");
-    print( userUnits * 35 );
+    print("According To Your Units : $userUnits Your Bill Is ");
+    print(userUnits * 35);
   }
 }
