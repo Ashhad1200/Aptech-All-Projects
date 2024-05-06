@@ -45,11 +45,6 @@ namespace eCommerce.Controllers
             return View();
         }
 
-        public IActionResult Fetch()
-        {
-            return View(applicationDBContext.Books.ToList());
-        }
-
         public IActionResult deleteBook(int id)
         {
             Book book = applicationDBContext.Books.Find(id);
