@@ -19,7 +19,8 @@ class home extends StatelessWidget {
                   child: Container(
                     child: Text("One"),
                     color: Colors.blueGrey,
-                    padding: EdgeInsets.all(30),
+                    padding: EdgeInsets.all(40),
+                    margin: EdgeInsets.all(15),
                   ),
                 ),
                 Expanded(
@@ -28,10 +29,22 @@ class home extends StatelessWidget {
                     child: Text("One"),
                     color: Colors.blueGrey,
                     padding: EdgeInsets.all(40),
+                    margin: EdgeInsets.all(15),
                   ),
                 ),
               ],
             ),
+            Row(children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  child: Text("One"),
+                  color: Colors.blueGrey,
+                  padding: EdgeInsets.all(40),
+                  margin: EdgeInsets.all(15),
+                ),
+              ),
+            ])
           ],
         ));
   }
