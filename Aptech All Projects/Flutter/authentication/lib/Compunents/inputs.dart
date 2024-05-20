@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class MyInput extends StatelessWidget {
   final String hintText;
   final bool obscuretext;
+  final TextEditingController  textController;
   const MyInput({
     super.key,
     required this.hintText,
     required this.obscuretext,
+    required this.textController
   });
 
   @override
@@ -15,6 +17,7 @@ class MyInput extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         obscureText: obscuretext,
+        controller: textController,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(

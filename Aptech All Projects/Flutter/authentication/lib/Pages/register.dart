@@ -2,13 +2,14 @@ import 'package:authentication/Compunents/buttons.dart';
 import 'package:authentication/Compunents/inputs.dart';
 import 'package:flutter/material.dart';
 
-class authPage extends StatelessWidget {
+class Register extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final void Function()? onTap;
-  authPage({super.key , required this.onTap});
-
-
+  final TextEditingController confirmPasswordController = TextEditingController();
+   Register({super.key});
+  void onTap() {
+    //
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,13 +29,15 @@ class authPage extends StatelessWidget {
         MyInput(hintText: "Email", obscuretext: false , textController: emailController),
         SizedBox(height: 30),
         MyInput(hintText: "Password", obscuretext: true , textController: passwordController),
+        SizedBox(height: 30),
+        MyInput(hintText: " Confirm Password", obscuretext: true ,textController: confirmPasswordController),
         SizedBox(height: 20),
-        MyButton(buttonText: "Login", onTap: onTap),
+        MyButton(buttonText: "SignUp", onTap: onTap),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Not Registered?", style: TextStyle(color: Colors.black)),
-            Text("  Registered Now!",
+            Text("Already Registered?", style: TextStyle(color: Colors.black)),
+            Text("  Login Now!",
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
           ],
