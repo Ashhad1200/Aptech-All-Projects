@@ -1,3 +1,4 @@
+import 'package:authentication/Pages/authPage.dart';
 import 'package:flutter/material.dart';
 
 class loginOrRegister extends StatefulWidget {
@@ -8,10 +9,17 @@ class loginOrRegister extends StatefulWidget {
 }
 
 class _loginOrRegisterState extends State<loginOrRegister> {
+  bool showLoginPage = true;
+  void togglePages() {
+    setState(() {
+      showLoginPage = !showLoginPage;
+    });
+  }
 
-  bo
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    if(showLoginPage){
+      return authPage(onTap: togglePages)
+    }
   }
 }
