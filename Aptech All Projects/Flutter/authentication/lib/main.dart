@@ -1,5 +1,6 @@
 import 'package:authentication/Pages/authPage.dart';
 import 'package:authentication/Pages/register.dart';
+import 'package:authentication/auth/loginAndSignup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Register(),
+      home: loginOrRegister(),
       debugShowCheckedModeBanner: false,
     );
   }

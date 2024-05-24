@@ -1,4 +1,5 @@
 import 'package:authentication/Pages/authPage.dart';
+import 'package:authentication/Pages/register.dart';
 import 'package:flutter/material.dart';
 
 class loginOrRegister extends StatefulWidget {
@@ -18,8 +19,12 @@ class _loginOrRegisterState extends State<loginOrRegister> {
 
   @override
   Widget build(BuildContext context) {
-    if(showLoginPage){
-      return authPage(onTap: togglePages)
+    if (showLoginPage) {
+      return authPage(onTap: togglePages);
+    } else {
+      return Register(
+        onTap: togglePages,
+      );
     }
   }
 }

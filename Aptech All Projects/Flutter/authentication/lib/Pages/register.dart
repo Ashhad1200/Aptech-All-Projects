@@ -6,10 +6,16 @@ class Register extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
-   Register({super.key});
-  void onTap() {
-    //
-  }
+  final void Function()? onTap;
+   Register({
+    super.key, 
+    required this.onTap
+    });
+
+void signUp(){
+  //
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +38,17 @@ class Register extends StatelessWidget {
         SizedBox(height: 30),
         MyInput(hintText: " Confirm Password", obscuretext: true ,textController: confirmPasswordController),
         SizedBox(height: 20),
-        MyButton(buttonText: "SignUp", onTap: onTap),
+        MyButton(buttonText: "SignUp", onTap: signUp),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Already Registered?", style: TextStyle(color: Colors.black)),
-            Text("  Login Now!",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+            GestureDetector(
+              onTap: onTap,
+              child: Text("  Login Now!",
+                  style:
+                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            )
           ],
         )
       ]),

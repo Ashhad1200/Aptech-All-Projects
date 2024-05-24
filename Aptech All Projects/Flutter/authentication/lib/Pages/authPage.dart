@@ -8,6 +8,9 @@ class authPage extends StatelessWidget {
   final void Function()? onTap;
   authPage({super.key , required this.onTap});
 
+void login(){
+  //
+}
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +32,17 @@ class authPage extends StatelessWidget {
         SizedBox(height: 30),
         MyInput(hintText: "Password", obscuretext: true , textController: passwordController),
         SizedBox(height: 20),
-        MyButton(buttonText: "Login", onTap: onTap),
+        MyButton(buttonText: "Login", onTap: login),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Not Registered?", style: TextStyle(color: Colors.black)),
-            Text("  Registered Now!",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+            GestureDetector(
+              onTap: onTap,
+              child: Text("  Registered Now!",
+                  style:
+                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            )
           ],
         )
       ]),
