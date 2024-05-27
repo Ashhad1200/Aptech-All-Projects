@@ -18,21 +18,23 @@ void login(){
       backgroundColor: Color(0xFF66BB6A),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Icon(
-          Icons.message,
-          size: 40,
+          Icons.person,
+          size: 80,
           color: Colors.black,
         ),
         SizedBox(height: 30),
         Text(
-          "Welcome Here",
+          "LogIn Here To Get In The Application",
           style: TextStyle(color: Colors.white),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 20),
         MyInput(hintText: "Email", obscuretext: false , textController: emailController),
-        SizedBox(height: 30),
+        SizedBox(height: 20),
         MyInput(hintText: "Password", obscuretext: true , textController: passwordController),
         SizedBox(height: 20),
-        MyButton(buttonText: "Login", onTap: login),
+        MyButton(buttonText: "Login !", onTap: login),
+
+         SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

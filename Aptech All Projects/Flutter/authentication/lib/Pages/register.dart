@@ -22,23 +22,25 @@ void signUp(){
       backgroundColor: Color(0xFF66BB6A),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Icon(
-          Icons.message,
-          size: 40,
+          Icons.email_rounded,
+          size: 80,
           color: Colors.black,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 10),
         Text(
-          "Welcome Here",
+          "Welcome To Our Application Register Your Self Here",
           style: TextStyle(color: Colors.white),
         ),
-        SizedBox(height: 30),
-        MyInput(hintText: "Email", obscuretext: false , textController: emailController),
-        SizedBox(height: 30),
+        SizedBox(height: 10),
+        MyInput( hintText: "Email", obscuretext: false , textController: emailController),
+        SizedBox(height: 10),
         MyInput(hintText: "Password", obscuretext: true , textController: passwordController),
-        SizedBox(height: 30),
+        SizedBox(height: 10),
         MyInput(hintText: " Confirm Password", obscuretext: true ,textController: confirmPasswordController),
-        SizedBox(height: 20),
-        MyButton(buttonText: "SignUp", onTap: signUp),
+        SizedBox(height: 10),
+        MyButton(buttonText: "SignUp !", onTap: signUp),
+
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
