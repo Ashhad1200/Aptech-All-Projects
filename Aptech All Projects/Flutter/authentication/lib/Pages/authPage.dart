@@ -1,16 +1,22 @@
 import 'package:authentication/Compunents/buttons.dart';
 import 'package:authentication/Compunents/inputs.dart';
+import 'package:authentication/auth/authServices.dart';
 import 'package:flutter/material.dart';
 
 class authPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final void Function()? onTap;
-  authPage({super.key , required this.onTap});
+  authPage({super.key, required this.onTap});
 
-void login(){
-  //
-}
+  void login(BuildContext context) {
+    final authService = Authservice();
+    try{
+      await authService.signInWithEmailAndPassword(emailController.text, passwordController.text);
+    }catch(e){
+      showDialog(context: context, builder: (context) => AlertDialog(title: Text(e.toString()),));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +34,18 @@ void login(){
           style: TextStyle(color: Colors.white),
         ),
         SizedBox(height: 20),
-        MyInput(hintText: "Email", obscuretext: false , textController: emailController),
+        MyInput(
+            hintText: "Email",
+            obscuretext: false,
+            textController: emailController),
         SizedBox(height: 20),
-        MyInput(hintText: "Password", obscuretext: true , textController: passwordController),
+        MyInput(
+            hintText: "Password",
+            obscuretext: true,
+            textController: passwordController),
         SizedBox(height: 20),
-        MyButton(buttonText: "Login !", onTap: login),
-
-         SizedBox(height: 10),
+        MyButton(buttonText: "Login !", onTap: () => login(context)),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -42,8 +53,8 @@ void login(){
             GestureDetector(
               onTap: onTap,
               child: Text("  Registered Now!",
-                  style:
-                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
             )
           ],
         )
