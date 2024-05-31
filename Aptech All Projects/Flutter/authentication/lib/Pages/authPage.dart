@@ -9,7 +9,7 @@ class authPage extends StatelessWidget {
   final void Function()? onTap;
   authPage({super.key, required this.onTap});
 
-  void login(BuildContext context) {
+  void login  (BuildContext context) async {
     final authService = Authservice();
     try{
       await authService.signInWithEmailAndPassword(emailController.text, passwordController.text);
