@@ -1,8 +1,8 @@
 import 'package:authentication/auth/authServices.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   void signOut() {
     final auth = Authservice();
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tu Kesy Hn app Log"),
+        title: Text("You Are Registerd Now"),
         actions: [IconButton(onPressed: signOut, icon: Icon(Icons.logout))],
       ),
     );
