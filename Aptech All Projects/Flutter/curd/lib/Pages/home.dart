@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   FirestoreServices _firestoreServices = FirestoreServices();
   final TextEditingController _textEditingController = TextEditingController();
+  Map<int, bool> hoverMap = {};
 
   void openNoteBox() {
     showDialog(
@@ -65,8 +66,36 @@ class _HomePageState extends State<HomePage> {
                     document.data() as Map<String, dynamic>;
                 String dataText = data['note'];
 
-                return HoverCard(
-                  dataText: dataText,
+                return MouseRegion(
+                  onEnter: (event) {
+                    setState(() {
+                      hoverMap[index] = true;
+                    });
+                  },
+                  onExit: (event) {
+                    setState(() {
+                      hoverMap[index] = false;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300), // Smooth transition duration
+                    decoration: BoxDecoration(
+                      color: hoverMap[index] == true
+                          ? Colors.blueAccent
+                          : Colors.lightBlueAccent,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          dataText,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      ),
+                    ),
+                  ),
                 );
               },
             );
@@ -74,52 +103,6 @@ class _HomePageState extends State<HomePage> {
             return Center(child: Text("No Data"));
           }
         },
-      ),
-    );
-  }
-}
-
-class HoverCard extends StatefulWidget {
-  final String dataText;
-
-  HoverCard({required this.dataText});
-
-  @override
-  _HoverCardState createState() => _HoverCardState();
-}
-
-class _HoverCardState extends State<HoverCard> {
-  bool _isHovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        // You can add actions on tap if needed
-      },
-      onHover: (hovering) {
-        setState(() {
-          _isHovered = hovering;
-        });
-      },
-      child: IntrinsicHeight(
-        child: Card(
-          color: _isHovered ? const Color.fromARGB(255, 114, 157, 233) : Colors.lightBlueAccent,
-          elevation: 4.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                widget.dataText,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
